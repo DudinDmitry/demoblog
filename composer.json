@@ -1,0 +1,12 @@
+{
+    "name": "dudin/laraveltest",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Dmitry Dudin",
+            "email": "5259092d@gmail.com"
+        }
+    ],
+    "require": {}
+}
