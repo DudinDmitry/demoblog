@@ -47,8 +47,6 @@ class Article
     {
         return $this->author;
     }
-
-
 }
 
 $author = new User('Dmitry');
