@@ -56,4 +56,10 @@ class TestController extends Controller
     {
         echo $this->employees[$number][$value];
     }
+    public function show($id)
+    {
+        $name=$this->employees[$id]['name'];
+        $surname=$this->employees[$id]['surname'];
+        return view('test.show',['name'=>$name,'surname'=>$surname]);
+    }
 }
