@@ -14,6 +14,4 @@
 Route::get('/', function () {
     return '!!!';
 });
-Route::get('/{year}/{month}/{day}', function($year,$month,$day){
-	return strftime("%A",strtotime($year.'-'.$month.'-'.$day));
-})->where(['year'=>'[0-9]{4}','month'=>'[0-9]{2}','day'=>'[0-9]{2}']);
+Route::get('test/show','TestController@show');
