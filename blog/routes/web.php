@@ -14,4 +14,9 @@
 Route::get('/', function () {
     return '!!!';
 });
-Route::get('test/show','TestController@show');
+
+Route::get('pages/all','pages@showAll');
+Route::get('pages/show/{id}','TestController@showOne')->where('id','[0-9]+');
+Route::get('pages/{value}/{number}','TestController@showFild')->where(['value'=>'name|surname|salary','number'=>'[0-9]+']);
+
+Route::get('test/sum/{num1}/{num2}','test@sum')->where(['num1'=>'[0-9]+','num2'=>'[0-9]+']);
