@@ -23,5 +23,6 @@ Route::get('blade','TestController@bladetest');
 Route::get('post/{id}','Post@showOne');
 Route::get('posts','Post@showAll');
 Route::get('/product/{category_id}/{product_id}','Product@showProduct');
+Route::get('/product/{category_id}','Product@showCategory');
 
 Route::get('test/sum/{num1}/{num2}','test@sum')->where(['num1'=>'[0-9]+','num2'=>'[0-9]+']);

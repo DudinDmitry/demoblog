@@ -63,18 +63,24 @@ class Product extends Controller
 
     public function showProduct($categoryId, $productId)
     {
-        $category=$this->categories[$categoryId];
-        $product=$category['products'][$productId];
-        if($product['inStock']==true)
-        {
-            $product['inStock']='Есть в наличии';
-        }
-        else{
-            $product['inStock']='Нет в наличии';
+        $category = $this->categories[$categoryId];
+        $product = $category['products'][$productId];
+        if ($product['inStock'] == true) {
+            $product['inStock'] = 'Есть в наличии';
+        } else {
+            $product['inStock'] = 'Нет в наличии';
         }
         return view('product.showProduct', [
-            'product'=>$product,
-            'category'=>$category,
+            'product' => $product,
+            'category' => $category,
+        ]);
+    }
+    public function showCategory($categoryId)
+    {
+        $category=$this->categories[$categoryId];
+        return view('product.showCategory',[
+           'category'=>$category['products'],
+            'categoryId'=>$categoryId,
         ]);
     }
 }
