@@ -56,26 +56,35 @@ class TestController extends Controller
     {
         echo $this->employees[$number][$value];
     }
+
     public function show($id)
     {
-        $name=$this->employees[$id]['name'];
-        $surname=$this->employees[$id]['surname'];
-        $salary=$this->employees[$id]['salary'];
-        $style='color:red';
-        $text='Посмотреть можно здесь';
-        $href='dudstud.ru';
-        $sity=null;
-        return view('test.show',[
-            'employee'=>[
-                'name'=>$name,
-                'surname'=>$surname,
-                'salary'=>$salary,
+        $name = $this->employees[$id]['name'];
+        $surname = $this->employees[$id]['surname'];
+        $salary = $this->employees[$id]['salary'];
+        $style = 'color:red';
+        $text = 'Посмотреть можно здесь';
+        $href = 'dudstud.ru';
+        $sity = null;
+        return view('test.show', [
+            'employee' => [
+                'name' => $name,
+                'surname' => $surname,
+                'salary' => $salary,
 
             ],
-             'location'=>[
-                 'country'=>'USA',
-                 'sity'=>'Las-Vegas'
-             ]
-            ]);
+            'location' => [
+                'country' => 'USA',
+                'sity' => 'Las-Vegas'
+            ],
+            'year' => 2019,
+            'month' => 'June',
+            'season' => 13,
+            'string' => '<b>Жирный текст</b>',
+            'age'=>17,
+            'new'=>[
+                5,6,7,8,9
+            ]
+        ]);
     }
 }
