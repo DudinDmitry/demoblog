@@ -32,16 +32,14 @@
     Ваш возраст меньше 18
 @endunless
 <br>
-@if(count($new)>0)
-    @php
-    $sum=0;
-        foreach ($new as $elem=>$value)
-            {
-$sum+=$value;
-            }
-        echo $sum;
-    @endphp
-
-@endif
+<table border="1px">
+    @foreach($data as $elem)
+        <tr>
+            @foreach($elem as $value)
+                <td>{{$value}}</td>
+                @endforeach
+        </tr>
+        @endforeach
+</table>
 </body>
 </html>
