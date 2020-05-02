@@ -67,12 +67,7 @@ class TestController extends Controller
         $href = 'dudstud.ru';
         $sity = null;
         return view('test.show', [
-            'employee' => [
-                'name' => $name,
-                'surname' => $surname,
-                'salary' => $salary,
-
-            ],
+            'employee' => $this->employees,
             'location' => [
                 'country' => 'USA',
                 'sity' => 'Las-Vegas'
@@ -82,6 +77,7 @@ class TestController extends Controller
             'season' => 13,
             'string' => '<b>Жирный текст</b>',
             'age' => 17,
+            'forelsetest'=>[],
             'new' => [
                 2, 3, 4, 5, 6, 7, 8, 9
             ],
@@ -92,6 +88,30 @@ class TestController extends Controller
                 [16, 17, 18, 19, 20],
                 [21,22,23,24,25]
             ]
+
         ]);
+    }
+    public function bladetest()
+    {
+        $title='Test Blade Title';
+        $aside='Дополнительная часть сайдбара';
+        $links=[
+            [
+                'text'=>'text1',
+                'href'=>'href1'
+            ],
+            [
+                'text'=>'text2',
+                'href'=>'href2'
+            ],
+            [
+                'text'=>'text3',
+                'href'=>'href3'
+            ]
+        ];
+        return view('child',['title'=>$title,
+            'aside'=>$aside,
+            'links'=>$links
+            ]);
     }
 }

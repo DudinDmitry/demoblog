@@ -4,13 +4,7 @@
     <title>My view</title>
 </head>
 <body>
-<p>Name: {{$employee['name']}}</p>
-<p>Surname: {{$employee['surname']}}</p>
-<p>Salary: {{$employee['salary']}}</p>
-<p>Count: {{count($employee)}}</p>
-<p>Country: {{$location['country'] or 'Russia'}}</p>
-<p>Sity: {{$location['sity'] or 'Moscow'}}</p>
-<p>Date: {{$year or date('Y')}}</p>
+
 {{-- Этот комментарий не видно в исполнении --}}
 {!! $string !!}
 @php
@@ -32,14 +26,19 @@
     Ваш возраст меньше 18
 @endunless
 <br>
-<table border="1px">
-    @foreach($data as $elem)
-        <tr>
-            @foreach($elem as $value)
-                <td>{{$value}}</td>
-                @endforeach
-        </tr>
-        @endforeach
-</table>
+<ul>
+    @foreach($new as $elem)
+        @if($loop->remaining<3)
+            <li>{{$loop->iteration}}-{{$elem}}</li>
+            @continue
+        @endif
+
+        <b>{{$loop->iteration}}-{{$elem}}</b><br>
+
+    @endforeach
+@for($i=0;$i<11;$i++)
+    {{$i}}
+    @endfor
+</ul>
 </body>
 </html>
