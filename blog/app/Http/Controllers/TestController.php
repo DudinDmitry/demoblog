@@ -60,6 +60,22 @@ class TestController extends Controller
     {
         $name=$this->employees[$id]['name'];
         $surname=$this->employees[$id]['surname'];
-        return view('test.show',['name'=>$name,'surname'=>$surname]);
+        $salary=$this->employees[$id]['salary'];
+        $style='color:red';
+        $text='Посмотреть можно здесь';
+        $href='dudstud.ru';
+        $sity=null;
+        return view('test.show',[
+            'employee'=>[
+                'name'=>$name,
+                'surname'=>$surname,
+                'salary'=>$salary,
+
+            ],
+             'location'=>[
+                 'country'=>'USA',
+                 'sity'=>'Las-Vegas'
+             ]
+            ]);
     }
 }
