@@ -37,4 +37,24 @@
             </tr>
         @endforeach
     </table>
+
+    <form>
+        @foreach($employee as $subelem2)
+            {{ $loop->iteration}}
+            <select>
+                @foreach($subelem2 as $elem2)
+                    <option>{{$elem2}}</option>
+                @endforeach
+            </select><br>
+        @endforeach
+    </form>
+    <ul>
+        @foreach($arrayday as $elem)
+            @if($elem==$today)
+                <li style="color:darkorange">{{$elem}}</li>
+                @continue
+                @endif
+            <li>{{$elem}}</li>
+        @endforeach
+    </ul>
 @endsection

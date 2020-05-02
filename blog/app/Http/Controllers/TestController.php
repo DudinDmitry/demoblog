@@ -16,31 +16,31 @@ class TestController extends Controller
                 'name' => 'user1',
                 'surname' => 'surname1',
                 'salary' => 1000,
-                'banned'=>true
+                'banned' => true
             ],
             2 => [
                 'name' => 'user2',
                 'surname' => 'surname2',
                 'salary' => 2000,
-                'banned'=>false
+                'banned' => false
             ],
             3 => [
                 'name' => 'user3',
                 'surname' => 'surname3',
                 'salary' => 3000,
-                'banned'=>true
+                'banned' => true
             ],
             4 => [
                 'name' => 'user4',
                 'surname' => 'surname4',
                 'salary' => 4000,
-                'banned'=>false
+                'banned' => false
             ],
             5 => [
                 'name' => 'name5',
                 'surname' => 'surname5',
                 'salary' => 5000,
-                'banned'=>true
+                'banned' => true
             ],
         ];
     }
@@ -82,7 +82,7 @@ class TestController extends Controller
             'season' => 13,
             'string' => '<b>Жирный текст</b>',
             'age' => 17,
-            'forelsetest'=>[],
+            'forelsetest' => [],
             'new' => [
                 2, 3, 4, 5, 6, 7, 8, 9
             ],
@@ -91,34 +91,44 @@ class TestController extends Controller
                 [6, 7, 8, 9, 10],
                 [11, 12, 13, 14, 15],
                 [16, 17, 18, 19, 20],
-                [21,22,23,24,25]
+                [21, 22, 23, 24, 25]
             ]
 
         ]);
     }
+
     public function bladetest()
     {
-        $title='Test Blade Title';
-        $aside='Дополнительная часть сайдбара';
-        $links=[
+        $title = 'Test Blade Title';
+        $aside = 'Дополнительная часть сайдбара';
+        $links = [
             [
-                'text'=>'text1',
-                'href'=>'href1'
+                'text' => 'text1',
+                'href' => 'href1'
             ],
             [
-                'text'=>'text2',
-                'href'=>'href2'
+                'text' => 'text2',
+                'href' => 'href2'
             ],
             [
-                'text'=>'text3',
-                'href'=>'href3'
+                'text' => 'text3',
+                'href' => 'href3'
             ]
         ];
+        $lastday = (int)date('t');
+        $today = date('d');
 
-        return view('child',['title'=>$title,
-            'aside'=>$aside,
-            'links'=>$links,
-            'employee'=>$this->employees
-            ]);
+        for ($i = 1; $i <= $lastday; $i++) {
+            $arrayday[] = $i;
+        }
+
+
+        return view('child', ['title' => $title,
+            'aside' => $aside,
+            'links' => $links,
+            'employee' => $this->employees,
+            'today' => $today,
+            'arrayday' => $arrayday
+        ]);
     }
 }
